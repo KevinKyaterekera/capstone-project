@@ -1,5 +1,6 @@
 import { travel, user } from "@/data/data";
 import Image from "next/image";
+import { styled } from "styled-components";
 
 export default function TravelOverview() {
   return (
@@ -7,10 +8,15 @@ export default function TravelOverview() {
       {travel.map((trip) => {
         return (
           <>
-            <section>📍{trip.name}</section>
             <section>
-              {TravelDetails()}
-              {trip.timePeriod}
+              {trip.name}
+              <br />
+              📍{trip.destination}
+            </section>
+
+            <section>
+              {UserIcon()}
+              <p>Time-period: {trip.timePeriod}</p>
             </section>
           </>
         );
@@ -19,7 +25,7 @@ export default function TravelOverview() {
   );
 }
 
-function TravelDetails() {
+function UserIcon() {
   return (
     <Image
       src="/images/user-icon.svg"
