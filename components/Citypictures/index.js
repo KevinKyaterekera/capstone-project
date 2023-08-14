@@ -4,8 +4,8 @@ export default function CityPicture() {
   return (
     <Image
       src="/images/london.jpg"
-      width={500}
-      height={500}
+      width={250}
+      height={250}
       alt="This is a picture of the destinated city"
     />
   );
