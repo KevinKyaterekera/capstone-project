@@ -1,3 +1,4 @@
+import { useState } from "react";
 import DestinationImage from "@/components/DestinationImage";
 import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
@@ -16,5 +17,5 @@ const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 4rem;
+  gap: 1.6rem;
 `;
