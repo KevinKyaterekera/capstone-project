@@ -1,6 +1,12 @@
+import Link from "next/link";
 import { styled } from "styled-components";
+
 export default function Button() {
-  return <StyledButton>Back to overview</StyledButton>;
+  return (
+    <Link href="/">
+      <StyledButton>Back to overview</StyledButton>
+    </Link>
+  );
 }
 
 const StyledButton = styled.button`
