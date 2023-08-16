@@ -1,4 +1,8 @@
-# Documentation:
+# Capstone project description:
+
+This App should help friends to coordinate and organize a group trip.
+
+## Documentation:
 
 - deleted SimpleFrames from global.css
 - created Container Component for styled container frames
@@ -19,5 +23,14 @@
 - An challenge was to pass to props correctly into the list-item in the index.js file
 - Resizing the Image-Component within the li-component
   - At the end i just created a new Image-Component and styled this until it fits properly. But to be honest, i am not very satisfied with this solution.
+
+## User Story 3:
+
+- Fixed the li element and put a Link component into it.
+-
+
+### Challenges:
+
+-
 
 ###

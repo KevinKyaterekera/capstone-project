@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import { travel } from "@/data/data";
 import TripItem from "@/components/TripItem";
-import Link from "next/link";
 
 export default function ListOverview({ name, destination }) {
   return (
