@@ -1,14 +1,12 @@
-import { useState } from "react";
-import DestinationImage from "@/components/DestinationImage";
-import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
+import { travel } from "@/data/data";
+import TripItem from "@/components/TripItem";
 
-export default function HomePage() {
+export default function ListOverview({ name, destination }) {
   return (
     <FlexContainer>
-      <h2>Travel details</h2>
-      <DestinationImage />
-      <TravelOverview />
+      <h2>Upcoming trips</h2>
+      <TripItem />
     </FlexContainer>
   );
 }
