@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import { travel } from "@/data/data";
 import TripItem from "@/components/TripItem";
+import Link from "next/link";
 
 export default function ListOverview({ name, destination }) {
   return (
@@ -11,7 +12,7 @@ export default function ListOverview({ name, destination }) {
   );
 }
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
