@@ -1,6 +1,7 @@
-import { travel, user } from "@/data/data";
+import { travel } from "@/data/data";
 import { styled } from "styled-components";
 import UserIcon from "../UserIcon";
+import TimePeriod from "./TimePeriod";
 
 const trip = travel[0];
 
@@ -14,7 +15,7 @@ export default function TravelOverview() {
       </article>
       <FlexArticle>
         <UserIcon />
-        <p>Time-period: {trip.timePeriod}</p>
+        <TimePeriod />
       </FlexArticle>
     </FlexContainer>
   );
