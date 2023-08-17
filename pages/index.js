@@ -11,7 +11,7 @@ export default function ListOverview({ name, destination }) {
   );
 }
 
-const FlexContainer = styled.div`
+const FlexContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;

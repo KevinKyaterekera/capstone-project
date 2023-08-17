@@ -2,6 +2,7 @@ import { useState } from "react";
 import DestinationImage from "@/components/DestinationImage";
 import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
+import Button from "@/components/Button";
 
 export default function HomePage() {
   return (
@@ -9,6 +10,7 @@ export default function HomePage() {
       <h2>Travel details</h2>
       <DestinationImage />
       <TravelOverview />
+      <Button />
     </FlexContainer>
   );
 }
