@@ -1,3 +1,4 @@
+import Form from "@/components/Form";
 import PrimaryLink from "@/components/PrimaryLink";
 import { styled } from "styled-components";
 
@@ -5,6 +6,7 @@ export default function CreateTripForm() {
   return (
     <FlexContainer>
       <h2>Create your trip</h2>
+      <Form />
       <PrimaryLink href="/">Create your trip</PrimaryLink>
     </FlexContainer>
   );

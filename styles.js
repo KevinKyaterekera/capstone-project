@@ -5,9 +5,8 @@ export default createGlobalStyle`
   *::before,
   *::after {
     box-sizing: border-box;
-  }
-  body {
-    margin: 0;
+  }body {
+    margin: auto;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 `;
