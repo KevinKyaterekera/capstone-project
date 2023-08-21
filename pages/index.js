@@ -1,14 +1,14 @@
 import { styled } from "styled-components";
 import { travel } from "@/data/data";
 import TripItem from "@/components/TripItem";
-import NewTripButtonButton from "@/components/CreateTripButton";
+import NewTripButton from "@/components/CreateTripButton";
 
 export default function ListOverview({ name, destination }) {
   return (
     <FlexContainer>
       <h2>Upcoming trips</h2>
       <TripItem />
-      <NewTripButtonButton>Add new trip</NewTripButtonButton>
+      <NewTripButton>Add new trip</NewTripButton>
     </FlexContainer>
   );
 }
