@@ -2,7 +2,7 @@ import { useState } from "react";
 import DestinationImage from "@/components/DestinationImage";
 import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
-import Button from "@/components/Button";
+import PrimaryLink from "@/components/PrimaryLink";
 
 export default function HomePage() {
   return (
@@ -10,14 +10,15 @@ export default function HomePage() {
       <h2>Travel details</h2>
       <DestinationImage />
       <TravelOverview />
-      <Button />
+      <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>
   );
 }
-
 const FlexContainer = styled.div`
+  width: 75%;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
+  gap: 1.3rem;
 `;

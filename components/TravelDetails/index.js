@@ -28,7 +28,6 @@ const FlexArticle = styled.article`
   padding: 0.5rem;
   border: 0.5px solid black;
   border-radius: 0.5rem;
-  background-color: lightgrey;
   & svg {
     width: 2rem;
     height: 2rem;
