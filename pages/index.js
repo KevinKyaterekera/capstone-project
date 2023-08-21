@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import TripItem from "@/components/TripItem";
-import PrimaryLink from "@/components/PrimaryButton";
+import PrimaryLink from "@/components/PrimaryLink";
 
 export default function ListOverview() {
   return (
@@ -13,6 +13,7 @@ export default function ListOverview() {
 }
 
 const FlexContainer = styled.ul`
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -2,7 +2,7 @@ import { useState } from "react";
 import DestinationImage from "@/components/DestinationImage";
 import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
-import PrimaryLink from "@/components/PrimaryButton";
+import PrimaryLink from "@/components/PrimaryLink";
 
 export default function HomePage() {
   return (
