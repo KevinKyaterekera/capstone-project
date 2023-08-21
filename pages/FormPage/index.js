@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button from "@/components/BackButton";
 import { styled } from "styled-components";
 
 export default function CreateTripForm() {
