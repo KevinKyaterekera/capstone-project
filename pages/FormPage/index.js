@@ -1,11 +1,11 @@
-import Button from "@/components/CircularButton";
+import PrimaryLink from "@/components/PrimaryButton";
 import { styled } from "styled-components";
 
 export default function CreateTripForm() {
   return (
     <FlexContainer>
       <h2>Create your trip</h2>
-      <Button />
+      <PrimaryLink href="/">Create your trip</PrimaryLink>
     </FlexContainer>
   );
 }

@@ -1,13 +1,13 @@
 import { styled } from "styled-components";
-import { travel } from "@/data/data";
 import TripItem from "@/components/TripItem";
-import DirectToFormPage from "@/components/SubmitButton";
-export default function ListOverview({ name, destination }) {
+import PrimaryLink from "@/components/PrimaryButton";
+
+export default function ListOverview() {
   return (
     <FlexContainer>
       <h2>Upcoming trips</h2>
       <TripItem />
-      <DirectToFormPage href="/FormPage">Add new trip</DirectToFormPage>
+      <PrimaryLink href="/FormPage">Add new trip</PrimaryLink>
     </FlexContainer>
   );
 }
