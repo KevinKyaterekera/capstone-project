@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { styled } from "styled-components";
 
-export default function FilledButton() {
+export default function DirectToFormPage() {
   return <StyledButtonLink href="/FormPage">Add new trip</StyledButtonLink>;
 }
 

@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { styled } from "styled-components";
-import { Children } from "react";
 
-export default function CircularButton({ children }) {
-  return <StyledButtonLink href="/">{children}</StyledButtonLink>;
+export default function DirectToOverviewButton() {
+  return <StyledButtonLink href="/">Back to overview</StyledButtonLink>;
 }
 
 const StyledButtonLink = styled(Link)`

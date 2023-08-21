@@ -1,4 +1,4 @@
-import Button from "@/components/BackButton";
+import Button from "@/components/CircularButton";
 import { styled } from "styled-components";
 
 export default function CreateTripForm() {

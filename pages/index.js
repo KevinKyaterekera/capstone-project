@@ -1,14 +1,13 @@
 import { styled } from "styled-components";
 import { travel } from "@/data/data";
 import TripItem from "@/components/TripItem";
-import CircularButton from "@/components/BackButton";
-
+import DirectToFormPage from "@/components/SubmitButton";
 export default function ListOverview({ name, destination }) {
   return (
     <FlexContainer>
       <h2>Upcoming trips</h2>
       <TripItem />
-      <CircularButton>Create a trip</CircularButton>
+      <DirectToFormPage href="/FormPage">Add new trip</DirectToFormPage>
     </FlexContainer>
   );
 }
