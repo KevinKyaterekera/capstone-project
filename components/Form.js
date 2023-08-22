@@ -56,7 +56,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="number"
           name="budget"
-          placeholder="e.g. 500,00€"
+          placeholder="e.g. 500,00"
         ></StyledInput>
       </label>
       <label htmlFor="name">
