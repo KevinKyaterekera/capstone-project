@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 import Link from "next/link";
 
 export default function TripItem({ currentTrips, setCurrentTrips }) {
-  console.log(currentTrips);
   return (
     <ul>
       {currentTrips.map((trip) => (

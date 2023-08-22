@@ -20,7 +20,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="text"
           name="name"
-          placeholder="Sprachreise"
+          placeholder="e.g. culinary trip, language study travel"
           required
         ></StyledInput>
       </label>
@@ -29,16 +29,25 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="text"
           name="destination"
-          placeholder="Barcelona"
+          placeholder="e.g. Barcelona"
           required
         ></StyledInput>
       </label>
       <label htmlFor="name">
-        Time period:
+        Start date:
         <StyledInput
           type="date"
           name="date"
-          placeholder="Choose a date"
+          placeholder="Choose a start date"
+          required
+        ></StyledInput>
+      </label>
+      <label htmlFor="name">
+        End date:
+        <StyledInput
+          type="date"
+          name="date"
+          placeholder="Choose a end date"
           required
         ></StyledInput>
       </label>
@@ -47,7 +56,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="number"
           name="budget"
-          placeholder="Example: 500,00"
+          placeholder="e.g. 500,00€"
         ></StyledInput>
       </label>
       <label htmlFor="name">
@@ -55,10 +64,10 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="text"
           name="user"
-          placeholder="Choose a friend"
+          placeholder="Choose a friend to travel with"
         ></StyledInput>
       </label>
-      <StyledButton type="submit">Create yout trip</StyledButton>
+      <StyledButton type="submit">Create your trip</StyledButton>
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </StyledForm>
   );
