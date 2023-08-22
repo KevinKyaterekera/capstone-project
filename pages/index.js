@@ -18,5 +18,5 @@ const FlexContainer = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.6rem;
+  gap: 0.6rem;
 `;

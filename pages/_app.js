@@ -7,7 +7,7 @@ import { travel } from "@/data/data";
 export default function App({ Component, pageProps }) {
   /* define the state and the initial data from your array by setting defaultValue to travel. use localstoragestate to keep the entries persistent*/
   const [currentTrips, setCurrentTrips] = useLocalStorageState("trips", {
-    defaultValue: [123],
+    defaultValue: [],
   });
 
   return (

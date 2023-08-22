@@ -28,7 +28,6 @@ export default function TripItem({ currentTrips, setCurrentTrips }) {
 }
 
 const StyledListItem = styled.li`
-  margin: auto;
   list-style: none;
   width: 75%;
 `;
@@ -36,22 +35,21 @@ const StyledListItem = styled.li`
 const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
-  width: 100%;
   gap: 1rem;
   border: 0.5px solid black;
   border-radius: 0.5rem;
-  padding: 0rem 0.5rem;
+  padding: 0.4rem;
   text-decoration: none;
   color: black;
 `;
 
 const ImageFitBox = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 65%;
+  height: 15%;
 `;
 
 const StyledImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   border-radius: 0.6rem;
 `;

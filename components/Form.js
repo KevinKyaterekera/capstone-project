@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import PrimaryLink from "./PrimaryLink";
 
 export default function Form({ currentTrips, setCurrentTrips }) {
   function handleSubmit(event) {
@@ -19,7 +20,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="text"
           name="name"
-          pattern="^[A-Za-z]+$"
+          placeholder="Sprachreise"
           required
         ></StyledInput>
       </label>
@@ -28,7 +29,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="text"
           name="destination"
-          pattern="^[A-Za-z]+$"
+          placeholder="Barcelona"
           required
         ></StyledInput>
       </label>
@@ -37,23 +38,28 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         <StyledInput
           type="date"
           name="date"
-          pattern="^[A-Za-z]+$"
+          placeholder="Choose a date"
           required
         ></StyledInput>
       </label>
       <label htmlFor="name">
         Your budget:
-        <StyledInput type="number" name="budget" required></StyledInput>
+        <StyledInput
+          type="number"
+          name="budget"
+          placeholder="Example: 500,00"
+        ></StyledInput>
       </label>
       <label htmlFor="name">
         Who will join you?
         <StyledInput
           type="text"
           name="user"
-          pattern="^[A-Za-z]+$"
+          placeholder="Choose a friend"
         ></StyledInput>
       </label>
       <StyledButton type="submit">Create yout trip</StyledButton>
+      <PrimaryLink href="/">Back to overview</PrimaryLink>
     </StyledForm>
   );
 }
