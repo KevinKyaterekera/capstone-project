@@ -1,27 +1,34 @@
 import { styled } from "styled-components";
-import { travel } from "@/data/data";
 import Link from "next/link";
 
-const travelList = travel[0];
-
-export default function TripItem() {
+export default function TripItem({ currentTrips, setCurrentTrips }) {
+  console.log(currentTrips);
   return (
-    <StyledListItem>
-      <StyledLink href="/TripDetailPage">
-        <ImageFitBox>
-          <StyledImage
-            src="/images/london.jpg"
-            alt="This is a picture of the destination city"
-          />
-        </ImageFitBox>
-        <span />
-        <ContentDetails />
-      </StyledLink>
-    </StyledListItem>
+    <ul>
+      {currentTrips.map((trip) => (
+        <StyledListItem key={trip.name}>
+          {/* using map function to receive correct data from trips*/}
+          <StyledLink href="/TripDetailPage">
+            <ImageFitBox>
+              <StyledImage
+                src="/images/london.jpg"
+                alt="This is a picture of the destination city"
+              />
+            </ImageFitBox>
+            <span />
+            <article>
+              <h4>{trip.tripName}</h4>
+              <p>📍{trip.tripDestination}</p>
+            </article>
+          </StyledLink>
+        </StyledListItem>
+      ))}
+    </ul>
   );
 }
 
 const StyledListItem = styled.li`
+  margin: auto;
   list-style: none;
   width: 75%;
 `;
@@ -48,12 +55,3 @@ const StyledImage = styled.img`
   height: 100%;
   border-radius: 0.6rem;
 `;
-
-function ContentDetails() {
-  return (
-    <article>
-      <h4>{travelList.name}</h4>
-      <p>📍{travelList.destination}</p>
-    </article>
-  );
-}

@@ -1,9 +1,20 @@
 import { styled } from "styled-components";
 
-export default function Form() {
+export default function Form({ currentTrips, setCurrentTrips }) {
+  function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData);
+    const newTripObject = {
+      tripName: data.name,
+      tripDestination: data.destination,
+    };
+    setCurrentTrips([...currentTrips, newTripObject]);
+    event.target.reset();
+  }
   return (
-    <StyledFieldset>
-      <label>
+    <StyledForm onSubmit={handleSubmit}>
+      <label htmlFor="name">
         Name of your trip:
         <StyledInput
           type="text"
@@ -12,29 +23,29 @@ export default function Form() {
           required
         ></StyledInput>
       </label>
-      <label>
+      <label htmlFor="name">
         Destination:
         <StyledInput
           type="text"
-          name="name"
+          name="destination"
           pattern="^[A-Za-z]+$"
           required
         ></StyledInput>
       </label>
-      <label>
+      <label htmlFor="name">
         Time period:
         <StyledInput
           type="date"
-          name="name"
+          name="date"
           pattern="^[A-Za-z]+$"
           required
         ></StyledInput>
       </label>
-      <label>
+      <label htmlFor="name">
         Your budget:
-        <StyledInput type="number" name="name" required></StyledInput>
+        <StyledInput type="number" name="budget" required></StyledInput>
       </label>
-      <label>
+      <label htmlFor="name">
         Who will join you?
         <StyledInput
           type="text"
@@ -42,18 +53,29 @@ export default function Form() {
           pattern="^[A-Za-z]+$"
         ></StyledInput>
       </label>
-    </StyledFieldset>
+      <StyledButton type="submit">Create yout trip</StyledButton>
+    </StyledForm>
   );
 }
 
-const StyledFieldset = styled.fieldset`
+const StyledForm = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  border: 0.5px solid black;
-  border-style: none;
+  gap: 1.5rem;
+  margin-bottom: 1.5;
 `;
 
 const StyledInput = styled.input`
-  width: 100%;
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
+`;
+
+const StyledButton = styled.button`
+  width: 90%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid black;
 `;

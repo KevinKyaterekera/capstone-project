@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
 import TripItem from "@/components/TripItem";
 import PrimaryLink from "@/components/PrimaryLink";
+import App from "./_app"; /* use this import to render the form data from the app.js */
 
-export default function ListOverview() {
+export default function ListOverview({ currentTrips, setCurrentTrips }) {
   return (
     <FlexContainer>
       <h2>Upcoming trips</h2>
-      <TripItem />
+      <TripItem currentTrips={currentTrips} setCurrentTrips={setCurrentTrips} />
       <PrimaryLink href="/FormPage">Add new trip</PrimaryLink>
     </FlexContainer>
   );
