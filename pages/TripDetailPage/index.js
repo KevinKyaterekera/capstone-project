@@ -1,6 +1,6 @@
 import { useState } from "react";
 import DestinationImage from "@/components/DestinationImage";
-import TravelOverview from "@/components/TravelDetails";
+import TravelOverview from "@/components/TripDetailView";
 import { styled } from "styled-components";
 import PrimaryLink from "@/components/PrimaryLink";
 
