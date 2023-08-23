@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 import UserIcon from "../UserIcon";
-import TimePeriod from "./TimePeriod";
 
-export default function TravelOverview({ currentTrips, setCurrentTrips }) {
+export default function TravelOverview({ currentTrips }) {
   return (
     <>
       {currentTrips.map((trip) => (
@@ -14,10 +13,12 @@ export default function TravelOverview({ currentTrips, setCurrentTrips }) {
           </article>
           <FlexArticle>
             <UserIcon />
-            <TimePeriod
-              currentTrips={currentTrips}
-              setCurrentTrips={setCurrentTrips}
-            />
+            <FlexContainer key={trip.tripId}>
+              <p>Time-period: </p>
+              {trip.tripStart}
+              <br />
+              {trip.tripEnd}
+            </FlexContainer>
           </FlexArticle>
         </FlexContainer>
       ))}

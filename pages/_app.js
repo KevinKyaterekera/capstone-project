@@ -14,10 +14,9 @@ export default function App({ Component, pageProps }) {
     router.push("/");
   }
 
-  function deleteTrip(tripsNotFiltered) {
+  /*function deleteTrip(tripsNotFiltered) {
     setCurrentTrips(tripsNotFiltered);
-  }
-
+  }*/
   return (
     <>
       <GlobalStyle />
@@ -28,8 +27,7 @@ export default function App({ Component, pageProps }) {
         setCurrentTrips={setCurrentTrips}
         /* all new trip submissions should render the start page*/
         submitNewTrip={submitNewTrip}
-        /* making delete function globally accessible */
-        deleteTrip={deleteTrip}
+        /* making delete function globally accessible      deleteTrip={deleteTrip}*/
       />
     </>
   );
