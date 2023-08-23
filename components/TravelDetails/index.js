@@ -6,7 +6,7 @@ export default function TravelOverview({ currentTrips, setCurrentTrips }) {
   return (
     <>
       {currentTrips.map((trip) => (
-        <FlexContainer key={trip.name}>
+        <FlexContainer key={trip.tripId}>
           <article>
             {trip.tripName}
             <br />

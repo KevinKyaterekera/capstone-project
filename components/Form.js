@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
+import { uid } from "uid";
 
-export default function Form({ currentTrips, setCurrentTrips }) {
+export default function Form({ submitNewTrip }) {
   function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
     const newTripObject = {
+      tripId: uid(),
       tripName: data.name,
       tripDestination: data.destination,
       tripUser: data.user,
@@ -14,8 +16,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       tripEnd: data.enddate,
     };
 
-    setCurrentTrips([...currentTrips, newTripObject]);
-    event.target.reset();
+    submitNewTrip(newTripObject);
   }
 
   return (
@@ -23,6 +24,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         Name of your trip:
         <StyledInput
+          id="name"
           type="text"
           name="name"
           placeholder="e.g. culinary trip, language study travel"
@@ -32,6 +34,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         Destination:
         <StyledInput
+          id="destination"
           type="text"
           name="destination"
           placeholder="e.g. Barcelona"
@@ -41,6 +44,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         Start date:
         <StyledInput
+          id="startdate"
           type="date"
           name="startdate"
           placeholder="Choose a start date"
@@ -50,6 +54,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         End date:
         <StyledInput
+          id="enddate"
           type="date"
           name="enddate"
           placeholder="Choose a end date"
@@ -59,6 +64,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         Your budget:
         <StyledInput
+          id="budget"
           type="number"
           name="budget"
           placeholder="e.g. 500,00"
@@ -67,6 +73,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
       <label htmlFor="name">
         Who will join you?
         <StyledInput
+          id="user"
           type="text"
           name="user"
           placeholder="Choose a friend to travel with"

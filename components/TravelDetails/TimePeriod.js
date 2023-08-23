@@ -4,7 +4,7 @@ export default function TimePeriod({ currentTrips, setCurrentTrips }) {
   return (
     <>
       {currentTrips.map((trip) => (
-        <FlexContainer key={trip.TripName}>
+        <FlexContainer key={trip.tripId}>
           <p>Time-period: </p>
           {trip.tripStart}
           <br />
