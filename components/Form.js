@@ -9,10 +9,15 @@ export default function Form({ currentTrips, setCurrentTrips }) {
     const newTripObject = {
       tripName: data.name,
       tripDestination: data.destination,
+      tripUser: data.user,
+      tripStart: data.startdate,
+      tripEnd: data.enddate,
     };
+
     setCurrentTrips([...currentTrips, newTripObject]);
     event.target.reset();
   }
+
   return (
     <StyledForm onSubmit={handleSubmit}>
       <label htmlFor="name">
@@ -37,7 +42,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         Start date:
         <StyledInput
           type="date"
-          name="date"
+          name="startdate"
           placeholder="Choose a start date"
           required
         ></StyledInput>
@@ -46,7 +51,7 @@ export default function Form({ currentTrips, setCurrentTrips }) {
         End date:
         <StyledInput
           type="date"
-          name="date"
+          name="enddate"
           placeholder="Choose a end date"
           required
         ></StyledInput>

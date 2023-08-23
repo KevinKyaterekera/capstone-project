@@ -1,14 +1,17 @@
 import { styled } from "styled-components";
-import { travel } from "@/data/data";
 
-const traveldetails = travel[0];
-
-export default function TimePeriod() {
+export default function TimePeriod({ currentTrips, setCurrentTrips }) {
   return (
-    <FlexContainer>
-      <p>Time-period: </p>
-      {traveldetails.timePeriod}
-    </FlexContainer>
+    <>
+      {currentTrips.map((trip) => (
+        <FlexContainer key={trip.TripName}>
+          <p>Time-period: </p>
+          {trip.tripStart}
+          <br />
+          {trip.tripEnd}
+        </FlexContainer>
+      ))}
+    </>
   );
 }
 const FlexContainer = styled.div`

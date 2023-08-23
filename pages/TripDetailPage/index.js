@@ -4,12 +4,15 @@ import TravelOverview from "@/components/TravelDetails";
 import { styled } from "styled-components";
 import PrimaryLink from "@/components/PrimaryLink";
 
-export default function HomePage() {
+export default function HomePage({ currentTrips, setCurrentTrips }) {
   return (
     <FlexContainer>
       <h2>Travel details</h2>
       <DestinationImage />
-      <TravelOverview />
+      <TravelOverview
+        currentTrips={currentTrips}
+        setCurrentTrips={setCurrentTrips}
+      />
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>
   );

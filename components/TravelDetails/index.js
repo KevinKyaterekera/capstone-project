@@ -1,23 +1,27 @@
-import { travel } from "@/data/data";
 import { styled } from "styled-components";
 import UserIcon from "../UserIcon";
 import TimePeriod from "./TimePeriod";
 
-const trip = travel[0];
-
-export default function TravelOverview() {
+export default function TravelOverview({ currentTrips, setCurrentTrips }) {
   return (
-    <FlexContainer>
-      <article>
-        {trip.name}
-        <br />
-        📍{trip.destination}
-      </article>
-      <FlexArticle>
-        <UserIcon />
-        <TimePeriod />
-      </FlexArticle>
-    </FlexContainer>
+    <>
+      {currentTrips.map((trip) => (
+        <FlexContainer key={trip.name}>
+          <article>
+            {trip.tripName}
+            <br />
+            📍{trip.tripDestination}
+          </article>
+          <FlexArticle>
+            <UserIcon />
+            <TimePeriod
+              currentTrips={currentTrips}
+              setCurrentTrips={setCurrentTrips}
+            />
+          </FlexArticle>
+        </FlexContainer>
+      ))}
+    </>
   );
 }
 
