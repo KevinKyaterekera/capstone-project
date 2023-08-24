@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 import { uid } from "uid";
+const slugify = require("slugify");
 
 export default function Form({ submitNewTrip }) {
   function handleSubmit(event) {
@@ -10,6 +11,7 @@ export default function Form({ submitNewTrip }) {
     const newTripObject = {
       tripId: uid(),
       tripName: data.name,
+      slug: slugify(data.name, { lower: true }),
       tripDestination: data.destination,
       tripUser: data.user,
       tripStart: data.startdate,
