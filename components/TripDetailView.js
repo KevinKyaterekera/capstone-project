@@ -1,7 +1,11 @@
-import { useRouter } from "next/router";
 import { styled } from "styled-components";
+import PrimaryLink from "./PrimaryLink";
 
 export default function TravelOverview({ trip, handleDelete }) {
+  /* within this function we need a dialog that asks if we really want to delete this trip*/
+  const handleOpenDialog = () => {
+    deleteDialog.showModal();
+  };
   return (
     <>
       <FlexContainer key={trip.tripId}>
@@ -28,9 +32,8 @@ export default function TravelOverview({ trip, handleDelete }) {
             {trip.tripEnd}
           </FlexContainer>
         </FlexArticle>
-
         {/* Since using slug we need to call trip and not the id anymore */}
-        <StyledDeleteButton onClick={() => handleDelete(trip)}>
+        <StyledDeleteButton onClick={handleOpenDialog}>
           <svg
             width={20}
             height={20}
@@ -41,6 +44,19 @@ export default function TravelOverview({ trip, handleDelete }) {
           </svg>
         </StyledDeleteButton>
       </FlexContainer>
+      <DeleteDialog id="deleteDialog">
+        <p>You are about to delete this trip. Are you sure?</p>
+        <form method="dialog">
+          <ButtonContainer>
+            <CancelButton>Cancel</CancelButton>
+            <PrimaryLink href="/">
+              <DeleteButton onClick={() => handleDelete(trip)}>
+                Yes!
+              </DeleteButton>
+            </PrimaryLink>
+          </ButtonContainer>
+        </form>
+      </DeleteDialog>
     </>
   );
 }
@@ -71,4 +87,31 @@ const StyledDeleteButton = styled.button`
   &:hover {
     background-color: transparent;
   }
+`;
+
+const CancelButton = styled.button`
+  border: 0.5px solid black;
+`;
+
+const DeleteButton = styled.button`
+  border: 0.5px solid black;
+`;
+
+const DeleteDialog = styled.dialog`
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
 `;
