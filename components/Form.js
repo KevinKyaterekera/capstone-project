@@ -43,7 +43,7 @@ export default function Form({ submitNewTrip }) {
           required
         ></StyledInput>
       </label>
-      <label htmlFor="name">
+      <label htmlFor="startdate">
         Start date:
         <StyledInput
           id="startdate"
@@ -53,7 +53,7 @@ export default function Form({ submitNewTrip }) {
           required
         ></StyledInput>
       </label>
-      <label htmlFor="name">
+      <label htmlFor="enddate">
         End date:
         <StyledInput
           id="enddate"
