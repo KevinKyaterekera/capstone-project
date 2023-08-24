@@ -20,8 +20,8 @@ export default function CreateTripForm({
 }
 
 const FlexContainer = styled.ul`
+  gap: 1.6rem;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
 `;

@@ -4,7 +4,8 @@ import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
-export default function CategoryPage({ currentTrips }) {
+/* receive and pass the handleDelete function in order to use it in the TravelOverview */
+export default function CategoryPage({ currentTrips, handleDelete }) {
   const router = useRouter();
   const { slug } = router.query;
   const trip = currentTrips.find((trip) => slug === trip.slug);
@@ -15,16 +16,16 @@ export default function CategoryPage({ currentTrips }) {
     <FlexContainer>
       <h2>Travel details</h2>
       <DestinationImage />
-      <TravelOverview trip={trip} />
+      <TravelOverview trip={trip} handleDelete={handleDelete} />
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>
   );
 }
 const FlexContainer = styled.div`
+  gap: 1.3rem;
   width: 75%;
   margin: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1.3rem;
+  flex-direction: column;
 `;

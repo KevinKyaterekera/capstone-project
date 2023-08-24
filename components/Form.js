@@ -88,23 +88,23 @@ export default function Form({ submitNewTrip }) {
 }
 
 const StyledForm = styled.form`
+  gap: 1.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   margin-bottom: 1.5;
 `;
 
 const StyledInput = styled.input`
   width: 90%;
+  border: 1px solid black;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid black;
 `;
 
 const StyledButton = styled.button`
   width: 90%;
+  border: 1px solid black;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: 1px solid black;
 `;

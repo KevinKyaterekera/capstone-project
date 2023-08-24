@@ -2,11 +2,11 @@ import Link from "next/link";
 import { styled } from "styled-components";
 
 export default styled(Link)`
-  margin: auto;
-  width: 50%;
-  text-decoration: none;
   color: black;
+  width: 50%;
   border: 1px solid black;
-  border-radius: 0.5rem;
+  margin: auto;
   padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
 `;

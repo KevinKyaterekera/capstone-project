@@ -28,19 +28,19 @@ export default function TripItem({ currentTrips }) {
 }
 
 const StyledListItem = styled.li`
-  list-style: none;
   width: 75%;
+  list-style: none;
 `;
 
 const StyledLink = styled(Link)`
+  gap: 1rem;
+  color: black;
+  border: 0.5px solid black;
+  padding: 0.4rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border: 0.5px solid black;
   border-radius: 0.5rem;
-  padding: 0.4rem;
   text-decoration: none;
-  color: black;
 `;
 
 const ImageFitBox = styled.div`

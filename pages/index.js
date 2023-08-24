@@ -13,9 +13,9 @@ export default function ListOverview({ currentTrips, setCurrentTrips }) {
 }
 
 const FlexContainer = styled.ul`
+  gap: 0.6rem;
   margin: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  flex-direction: column;
 `;

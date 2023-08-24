@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
-export default function TravelOverview({ trip, deleteTrip }) {
+export default function TravelOverview({ trip, handleDelete }) {
   return (
     <>
       <FlexContainer key={trip.tripId}>
@@ -29,8 +29,8 @@ export default function TravelOverview({ trip, deleteTrip }) {
           </FlexContainer>
         </FlexArticle>
 
-        {/* This still needs to be connected to the id of the trip */}
-        <StyledDeleteButton onClick={deleteTrip}>
+        {/* Since using slug we need to call trip and not the id anymore */}
+        <StyledDeleteButton onClick={() => handleDelete(trip)}>
           <svg
             width={20}
             height={20}
@@ -43,25 +43,14 @@ export default function TravelOverview({ trip, deleteTrip }) {
       </FlexContainer>
     </>
   );
-
-  function onClickDelete(id) {
-    const deleteTrip = currentTrips.filter((trip) => {
-      if (trip.id === id) {
-        return false;
-      } else {
-        return true;
-      }
-    });
-    deleteTrip(deleteTrip);
-  }
 }
 
 const FlexArticle = styled.article`
+  gap: 4rem;
+  border: 0.5px solid black;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
-  gap: 4rem;
-  padding: 0.5rem;
-  border: 0.5px solid black;
   border-radius: 0.5rem;
   & svg {
     width: 2rem;
@@ -70,12 +59,12 @@ const FlexArticle = styled.article`
 `;
 
 const FlexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
   gap: 1.6rem;
   border: 0.5px solid black;
-  border-radius: 0.5rem;
   padding: 0.5rem;
+  display: flex;
+  border-radius: 0.5rem;
+  flex-direction: column;
 `;
 
 const StyledDeleteButton = styled.button`
