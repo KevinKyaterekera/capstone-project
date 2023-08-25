@@ -1,13 +1,14 @@
 import { styled } from "styled-components";
 import Link from "next/link";
 
-export default function TripItem({ currentTrips, setCurrentTrips }) {
+export default function TripItem({ currentTrips }) {
   return (
     <ul>
       {currentTrips.map((trip) => (
-        <StyledListItem key={trip.name}>
+        /*using dynamic routes redirect to the detail page with a user friendyl*/
+        <StyledListItem key={trip.tripId}>
           {/* using map function to receive correct data from trips*/}
-          <StyledLink href="/TripDetailPage">
+          <StyledLink href={`/TripDetailPage/${trip.slug}`}>
             <ImageFitBox>
               <StyledImage
                 src="/images/london.jpg"
@@ -27,19 +28,19 @@ export default function TripItem({ currentTrips, setCurrentTrips }) {
 }
 
 const StyledListItem = styled.li`
-  list-style: none;
   width: 75%;
+  list-style: none;
 `;
 
 const StyledLink = styled(Link)`
+  gap: 1rem;
+  color: black;
+  border: 0.5px solid black;
+  padding: 0.4rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border: 0.5px solid black;
   border-radius: 0.5rem;
-  padding: 0.4rem;
   text-decoration: none;
-  color: black;
 `;
 
 const ImageFitBox = styled.div`

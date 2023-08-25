@@ -1,9 +1,18 @@
 import { styled } from "styled-components";
 import TripItem from "@/components/TripItem";
 import PrimaryLink from "@/components/PrimaryLink";
-import App from "./_app"; /* use this import to render the form data from the app.js */
 
 export default function ListOverview({ currentTrips, setCurrentTrips }) {
+  const noTripsPlanned = currentTrips.length < 1;
+  if (noTripsPlanned) {
+    return (
+      <FlexContainer>
+        <h2>Travel details</h2>
+        <h3>Currently no trips planned 🥲</h3>
+        <PrimaryLink href="/FormPage">Add new trip</PrimaryLink>
+      </FlexContainer>
+    );
+  }
   return (
     <FlexContainer>
       <h2>Upcoming trips</h2>
@@ -14,9 +23,12 @@ export default function ListOverview({ currentTrips, setCurrentTrips }) {
 }
 
 const FlexContainer = styled.ul`
+  gap: 0.6rem;
   margin: auto;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
+  flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
 `;
