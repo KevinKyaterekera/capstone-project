@@ -17,7 +17,9 @@ export default function Form({ submitNewTrip }) {
       tripStart: data.startdate,
       tripEnd: data.enddate,
     };
-
+    if (data.enddate < data.startdate) {
+      window.alert("End date ca not be before start date!");
+    }
     submitNewTrip(newTripObject);
   }
 
@@ -29,8 +31,11 @@ export default function Form({ submitNewTrip }) {
           id="name"
           type="text"
           name="name"
-          placeholder="e.g. culinary trip, language study travel"
           required
+          autoFocus
+          maxLength="20"
+          pattern="[A-Za-z0-9À-ž\s]{2,}"
+          placeholder="e.g. culinary trip, language study travel"
         ></StyledInput>
       </label>
       <label htmlFor="name">
@@ -39,8 +44,10 @@ export default function Form({ submitNewTrip }) {
           id="destination"
           type="text"
           name="destination"
-          placeholder="e.g. Barcelona"
           required
+          maxLength="30"
+          pattern="[A-Za-z0-9À-ž\s]{2,}"
+          placeholder="e.g. Barcelona"
         ></StyledInput>
       </label>
       <label htmlFor="startdate">
@@ -69,6 +76,7 @@ export default function Form({ submitNewTrip }) {
           id="budget"
           type="number"
           name="budget"
+          min="0"
           placeholder="e.g. 500,00"
         ></StyledInput>
       </label>
@@ -78,6 +86,7 @@ export default function Form({ submitNewTrip }) {
           id="user"
           type="text"
           name="user"
+          pattern="[A-Za-z0-9À-ž\s]{2,}"
           placeholder="Choose a friend to travel with"
         ></StyledInput>
       </label>

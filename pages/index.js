@@ -28,4 +28,7 @@ const FlexContainer = styled.ul`
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: column;
+  }
 `;
