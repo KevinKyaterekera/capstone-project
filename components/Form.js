@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 import { uid } from "uid";
-const slugify = require("slugify");
+import slugify from "slugify";
 
 export default function Form({ submitNewTrip }) {
   function handleSubmit(event) {
@@ -18,7 +18,7 @@ export default function Form({ submitNewTrip }) {
       tripEnd: data.enddate,
     };
     if (data.enddate < data.startdate) {
-      window.alert("End date ca not be before start date!");
+      window.alert("End date can not be before start date!");
     }
     submitNewTrip(newTripObject);
   }

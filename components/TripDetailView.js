@@ -11,7 +11,6 @@ export default function TravelOverview({ trip, handleDelete }) {
       <FlexContainer key={trip.tripId}>
         <article>
           {trip.tripName}
-          <br />
           📍{trip.tripDestination}
         </article>
         <FlexArticle>
@@ -28,7 +27,6 @@ export default function TravelOverview({ trip, handleDelete }) {
           <FlexContainer>
             <p>Time-period: </p>
             {trip.tripStart}
-            <br />
             {trip.tripEnd}
           </FlexContainer>
         </FlexArticle>
