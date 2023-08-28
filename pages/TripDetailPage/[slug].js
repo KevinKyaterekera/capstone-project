@@ -8,7 +8,6 @@ import { styled } from "styled-components";
 export default function CategoryPage({
   currentTrips,
   handleDelete,
-  participants,
   handleDeselect,
 }) {
   const router = useRouter();
@@ -24,7 +23,6 @@ export default function CategoryPage({
       <TravelOverview
         trip={trip}
         handleDelete={handleDelete}
-        participants
         handleDeselect={handleDeselect}
       />
       <PrimaryLink href="/">Back to overview</PrimaryLink>

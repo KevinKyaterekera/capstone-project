@@ -18,13 +18,18 @@ export default function App({ Component, pageProps }) {
 
   function handleDeselect(removeParticipant) {
     const participantFiltered = participants.filter(
-      (participant) => participant !== removeParticipant
+      (participant) =>
+        participant !==
+        removeParticipant /* think about using a proper naming like .tripUser */
     );
     setParticipants(participantFiltered);
   }
 
   const router = useRouter();
   function submitNewTrip(newTrip) {
+    newTrip.participants = participants.map(
+      (participant) => participant.tripUser
+    );
     setCurrentTrips([...currentTrips, newTrip]);
     router.push("/");
   }

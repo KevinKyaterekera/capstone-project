@@ -6,6 +6,7 @@ export default function SelectedParticipants({ participants, handleDeselect }) {
       {participants.map((participant) => (
         <FlexContainer key={participant.tripUser}>
           <StyledListItem>{participant.tripUser}</StyledListItem>
+          {/* this button will remove the participant selection*/}
           <button onClick={() => handleDeselect(participant)}>X</button>
         </FlexContainer>
       ))}
