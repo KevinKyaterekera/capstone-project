@@ -2,12 +2,21 @@ import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 import { uid } from "uid";
 import slugify from "slugify";
+import SelectedParticipants from "./Participants";
 
-export default function Form({ submitNewTrip }) {
+export default function Form({
+  submitNewTrip,
+  submitParticipants,
+  participants,
+  handleDeselect,
+}) {
   function handleSubmit(event) {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
+
+    /* create a new trip object using the form data */
     const newTripObject = {
       tripId: uid(),
       tripName: data.name,
@@ -17,10 +26,17 @@ export default function Form({ submitNewTrip }) {
       tripStart: data.startdate,
       tripEnd: data.enddate,
     };
+    /* check if the end date is before the start date */
     if (data.enddate < data.startdate) {
       window.alert("End date can not be before start date!");
     }
+
+    const newParticipantObject = {
+      tripUser: data.user,
+    };
+
     submitNewTrip(newTripObject);
+    submitParticipants(newParticipantObject);
   }
 
   return (
@@ -77,6 +93,7 @@ export default function Form({ submitNewTrip }) {
           type="number"
           name="budget"
           min="0"
+          required
           placeholder="e.g. 500,00"
         ></StyledInput>
       </label>
@@ -90,6 +107,10 @@ export default function Form({ submitNewTrip }) {
           placeholder="Choose a friend to travel with"
         ></StyledInput>
       </label>
+      <SelectedParticipants
+        participants={participants}
+        handleDeselect={handleDeselect}
+      />
       <StyledButton type="submit">Create your trip</StyledButton>
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </StyledForm>
@@ -116,4 +137,10 @@ const StyledButton = styled.button`
   border: 1px solid black;
   padding: 0.5rem;
   border-radius: 0.5rem;
+`;
+
+const StyledList = styled.ul`
+  display: flex;
+  gap: 1rem;
+  list-style: none;
 `;
