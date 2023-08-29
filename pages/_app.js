@@ -27,9 +27,9 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter();
   function submitNewTrip(newTrip) {
-    newTrip.participants = participants.map(
-      (participant) => participant.tripUser
-    );
+    // newTrip.participants = participants.map(
+    //   (participant) => participant.tripUser
+    // );
     setCurrentTrips([...currentTrips, newTrip]);
     router.push("/");
   }

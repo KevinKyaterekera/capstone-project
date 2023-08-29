@@ -10,6 +10,7 @@ export default function CreateTripForm({
   participants,
   submitParticipants,
   handleDeselect,
+  setParticipants,
 }) {
   return (
     <FlexContainer>
@@ -22,6 +23,7 @@ export default function CreateTripForm({
         participants={participants}
         submitParticipants={submitParticipants}
         handleDeselect={handleDeselect}
+        setParticipants={setParticipants}
       />
     </FlexContainer>
   );

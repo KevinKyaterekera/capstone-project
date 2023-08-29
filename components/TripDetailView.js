@@ -22,7 +22,7 @@ export default function TravelOverview({ trip, handleDelete, participants }) {
                 <path d="M17,18H15A11,11,0,0,0,4,29a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1A11,11,0,0,0,17,18ZM6.06,28A9,9,0,0,1,15,20h2a9,9,0,0,1,8.94,8Z" />
               </g>
             </svg>
-            {trip.participants && trip.participants.join(", ")}
+            {trip.tripUser && trip.tripUser.join(", ")}
           </FlexContainer>
           <FlexContainer>
             <p>Time-period: </p>

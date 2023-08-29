@@ -9,6 +9,7 @@ export default function Form({
   submitNewTrip,
   submitParticipants,
   participants,
+  setParticipants,
   handleDeselect,
 }) {
   const [currentParticipant, setCurrentParticipant] = useState("");
@@ -16,7 +17,7 @@ export default function Form({
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      submitParticipants({ tripUser: currentParticipant });
+      submitParticipants(currentParticipant);
       setCurrentParticipant("");
     }
   };
@@ -33,7 +34,7 @@ export default function Form({
       tripName: data.name,
       slug: slugify(data.name, { lower: true }),
       tripDestination: data.destination,
-      tripUser: data.user,
+      tripUser: participants,
       tripStart: data.startdate,
       tripEnd: data.enddate,
     };
@@ -53,13 +54,9 @@ export default function Form({
     if (!isValid) {
       return;
     }
-    const newParticipantObject = {
-      tripUser: data.user,
-    };
-
+    console.log(newTripObject);
     submitNewTrip(newTripObject);
-    submitParticipants(newParticipantObject);
-    setCurrentParticipant("");
+    setParticipants([]);
   }
 
   return (
