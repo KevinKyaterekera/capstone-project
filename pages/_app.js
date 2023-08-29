@@ -1,12 +1,29 @@
 import GlobalStyle from "../styles";
 import useLocalStorageState from "use-local-storage-state";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
   /* define the state and the initial data from your array by setting defaultValue to travel. use localstoragestate to keep the entries persistent*/
   const [currentTrips, setCurrentTrips] = useLocalStorageState("trips", {
     defaultValue: [],
   });
+
+  /* creating and removing of participants in the form .js */
+  const [participants, setParticipants] = useState([]);
+
+  function submitParticipant(newParticipant) {
+    setParticipants([...participants, newParticipant]);
+  }
+
+  function handleDeselect(removeParticipant) {
+    const participantFiltered = participants.filter(
+      (participant) =>
+        participant !==
+        removeParticipant /* think about using a proper naming like .tripUser */
+    );
+    setParticipants(participantFiltered);
+  }
 
   const router = useRouter();
   function submitNewTrip(newTrip) {
@@ -33,6 +50,10 @@ export default function App({ Component, pageProps }) {
         submitNewTrip={submitNewTrip}
         /* making delete function globally accessible */
         handleDelete={handleDelete}
+        participants={participants}
+        setParticipants={setParticipants}
+        submitParticipant={submitParticipant}
+        handleDeselect={handleDeselect}
       />
     </>
   );
