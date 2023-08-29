@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Form({
   submitNewTrip,
-  submitParticipants,
+  submitParticipant,
   participants,
   setParticipants,
   handleDeselect,
@@ -17,7 +17,7 @@ export default function Form({
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      submitParticipants(currentParticipant);
+      submitParticipant(currentParticipant);
       setCurrentParticipant("");
     }
   };
@@ -54,7 +54,6 @@ export default function Form({
     if (!isValid) {
       return;
     }
-    console.log(newTripObject);
     submitNewTrip(newTripObject);
     setParticipants([]);
   }

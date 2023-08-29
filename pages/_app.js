@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
   /* creating and removing of participants in the form .js */
   const [participants, setParticipants] = useState([]);
 
-  function submitParticipants(newParticipant) {
+  function submitParticipant(newParticipant) {
     setParticipants([...participants, newParticipant]);
   }
 
@@ -27,9 +27,6 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter();
   function submitNewTrip(newTrip) {
-    // newTrip.participants = participants.map(
-    //   (participant) => participant.tripUser
-    // );
     setCurrentTrips([...currentTrips, newTrip]);
     router.push("/");
   }
@@ -55,7 +52,7 @@ export default function App({ Component, pageProps }) {
         handleDelete={handleDelete}
         participants={participants}
         setParticipants={setParticipants}
-        submitParticipants={submitParticipants}
+        submitParticipant={submitParticipant}
         handleDeselect={handleDeselect}
       />
     </>

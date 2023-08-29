@@ -4,21 +4,18 @@ export default function SelectedParticipants({ participants, handleDeselect }) {
   return (
     <ul>
       {participants.map((participant) => (
-        <FlexContainer key={participant}>
-          <StyledListItem>{participant}</StyledListItem>
+        <>
+          <StyledListItem key={participant}>{participant}</StyledListItem>
           {/* this button will remove the participant selection*/}
           <button onClick={() => handleDeselect(participant)}>X</button>
-        </FlexContainer>
+        </>
       ))}
     </ul>
   );
 }
 
-const FlexContainer = styled.div`
-  gap: 1.6rem;
-  display: flex;
-`;
-
 const StyledListItem = styled.li`
   list-style: none;
+  gap: 1.6rem;
+  display: flex;
 `;

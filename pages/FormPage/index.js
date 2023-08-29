@@ -8,7 +8,7 @@ export default function CreateTripForm({
   submitNewTrip,
   handleDelete,
   participants,
-  submitParticipants,
+  submitParticipant,
   handleDeselect,
   setParticipants,
 }) {
@@ -21,7 +21,7 @@ export default function CreateTripForm({
         submitNewTrip={submitNewTrip}
         handleDelete={handleDelete}
         participants={participants}
-        submitParticipants={submitParticipants}
+        submitParticipant={submitParticipant}
         handleDeselect={handleDeselect}
         setParticipants={setParticipants}
       />
