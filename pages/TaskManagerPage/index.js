@@ -1,8 +1,23 @@
-export default function ToDoForm() {
+import { uid } from "uid";
+import TodoForm from "./ToDoForm";
+import { useState } from "react";
+
+/* keep in mind, that this one has to be rendered somewhere */
+export default function ToDoContainer() {
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (todo) => {
+    setTodos([...todos], {
+      id: uid(),
+      task: todo,
+      completed: false,
+      isEditing: false,
+    });
+  };
   return (
-    <form>
-      <input type="text" placeholder="Add a task.." />
-      <button type="submit">Add task</button>
-    </form>
+    <>
+      <TodoForm addTodo={addTodo} />
+    </>
   );
 }
+/* reminder to style this task manager properly */
