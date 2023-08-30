@@ -25,6 +25,7 @@ export default function TravelOverview({ trip, handleDelete, participants }) {
             {trip.tripUser && trip.tripUser.join(", ")}
           </FlexContainer>
           <FlexContainer>
+            <PrimaryLink href="/TaskManagerPage">task counter</PrimaryLink>
             <p>Time-period: </p>
             {trip.tripStart}
             {trip.tripEnd}

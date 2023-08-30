@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-import TripItem from "@/components/TripItem";
 import PrimaryLink from "@/components/PrimaryLink";
 import Searchbar from "@/components/Searchbar";
 
