@@ -8,6 +8,7 @@ export default function TodoForm({ addTodo }) {
     addTodo(value);
     setValue("");
   };
+  console.log(value);
   return (
     <form onSubmit={handleSubmit}>
       <input
