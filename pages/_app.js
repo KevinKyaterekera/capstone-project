@@ -11,11 +11,9 @@ export default function App({ Component, pageProps }) {
 
   /* creating and removing of participants in the form .js */
   const [participants, setParticipants] = useState([]);
-
   function submitParticipant(newParticipant) {
     setParticipants([...participants, newParticipant]);
   }
-
   function handleDeselect(removeParticipant) {
     const participantFiltered = participants.filter(
       (participant) =>
@@ -30,7 +28,6 @@ export default function App({ Component, pageProps }) {
     setCurrentTrips([...currentTrips, newTrip]);
     router.push("/");
   }
-
   function handleDelete(removeThisTrip) {
     const tripsFiltered = currentTrips.filter(
       (trip) => trip.slug !== removeThisTrip.slug
@@ -38,6 +35,7 @@ export default function App({ Component, pageProps }) {
     router.push("/");
     setCurrentTrips(tripsFiltered);
   }
+
   return (
     <>
       <GlobalStyle />

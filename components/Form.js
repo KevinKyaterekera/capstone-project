@@ -47,13 +47,14 @@ export default function Form({
 
     const currentDate = new Date();
     const selectedStartDate = new Date(data.startdate);
-    if (selectedStartDate < currentDate) {
-      window.alert("Start date can not be in the past");
+    if (selectedStartDate < currentDate - 1) {
+      window.alert("You can only plan trips in the future 😌");
       isValid = false;
     }
     if (!isValid) {
       return;
     }
+
     submitNewTrip(newTripObject);
     setParticipants([]);
   }
