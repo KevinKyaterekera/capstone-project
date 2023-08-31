@@ -4,11 +4,13 @@ import { useState } from "react";
 import Todo from "./ToDo";
 import { styled } from "styled-components";
 import Link from "next/link";
+import useLocalStorageState from "use-local-storage-state";
 
 /* keep in mind, that this one has to be rendered somewhere */
 export default function ToDoContainer() {
-  const [todos, setTodos] = useState([]);
-
+  const [todos, setTodos] = useLocalStorageState("todo", {
+    defaultValue: [],
+  });
   const addTodo = (todo) => {
     setTodos([
       ...todos,
@@ -20,6 +22,7 @@ export default function ToDoContainer() {
       },
     ]);
   };
+  // console.log(todos); --> this value needs to be counted by length in order to display it to the detail page
   return (
     <>
       <TodoForm addTodo={addTodo} />

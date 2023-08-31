@@ -8,7 +8,6 @@ export default function App({ Component, pageProps }) {
   const [currentTrips, setCurrentTrips] = useLocalStorageState("trips", {
     defaultValue: [],
   });
-
   /* creating and removing of participants in the form .js */
   const [participants, setParticipants] = useState([]);
   function submitParticipant(newParticipant) {
