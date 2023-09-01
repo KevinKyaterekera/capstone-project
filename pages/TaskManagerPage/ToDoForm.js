@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { styled } from "styled-components";
-import PrimaryLink from "@/components/PrimaryLink";
 
 export default function TodoForm({ addTodo }) {
   /* You need to keep track, of the user is putting in - useState */
@@ -16,6 +15,7 @@ export default function TodoForm({ addTodo }) {
       <StyledForm onSubmit={handleSubmit}>
         <StyledInput
           type="text"
+          required
           placeholder="Add a task here .."
           value={value}
           onChange={(event) =>

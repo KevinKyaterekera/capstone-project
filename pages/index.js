@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import PrimaryLink from "@/components/PrimaryLink";
 import Searchbar from "@/components/Searchbar";
 
+/* page 1 - starting page */
 export default function ListOverview({ currentTrips }) {
   const noTripsPlanned = currentTrips.length < 1;
   if (noTripsPlanned) {

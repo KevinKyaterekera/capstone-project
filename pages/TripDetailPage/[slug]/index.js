@@ -4,7 +4,7 @@ import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
-/* receive and pass the handleDelete function in order to use it in the TravelOverview */
+/* router page 2 */
 export default function CategoryPage({
   currentTrips,
   handleDelete,

@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 
 export default function TravelOverview({ trip, handleDelete, participants }) {
-  /* within this function we need a dialog that asks if we really want to delete this trip*/
+  /* page 2 detail view*/
   const handleOpenDialog = () => {
     deleteDialog.showModal();
   };

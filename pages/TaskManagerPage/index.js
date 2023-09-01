@@ -1,39 +1,44 @@
 import { uid } from "uid";
 import TodoForm from "./ToDoForm";
-import { useState } from "react";
 import Todo from "./ToDo";
 import { styled } from "styled-components";
 import Link from "next/link";
 import useLocalStorageState from "use-local-storage-state";
+import EditTodoForm from "./EditToDoForm";
 
-/* keep in mind, that this one has to be rendered somewhere */
-export default function ToDoContainer() {
-  const [todos, setTodos] = useLocalStorageState("todo", {
-    defaultValue: [],
-  });
-  const addTodo = (todo) => {
-    setTodos([
-      ...todos,
-      {
-        id: uid(),
-        task: todo,
-        completed: false,
-        isEditing: false,
-      },
-    ]);
-  };
+/* page 3 - todo app */
+
+export default function ToDoContainer({
+  editTodo,
+  editTask,
+  deleteTodo,
+  toggleComplete,
+  addTodo,
+  todos,
+}) {
   // console.log(todos); --> this value needs to be counted by length in order to display it to the detail page
   return (
     <>
-      <TodoForm addTodo={addTodo} />
-      {todos.map((todo, index) => (
-        <Todo task={todo} key={index} />
-      ))}
+      <StyledContainer>
+        <TodoForm addTodo={addTodo} />
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm key={todo.id} editTodo={editTask} task={todo} />
+          ) : (
+            <Todo
+              task={todo}
+              key={todo.id}
+              toggleComplete={toggleComplete}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+            />
+          )
+        )}
+      </StyledContainer>
       <BackLink href="/">Back to overview</BackLink>
     </>
   );
 }
-/* reminder to style this task manager properly */
 
 const BackLink = styled(Link)`
   display: flex;
@@ -46,4 +51,11 @@ const BackLink = styled(Link)`
   color: black;
   border: 0.5px solid black;
   width: 55%;
+`;
+
+const StyledContainer = styled.div`
+  background-color: lightgray;
+  width: 60%;
+  margin-left: 4rem;
+  border: 1px solid grey;
 `;

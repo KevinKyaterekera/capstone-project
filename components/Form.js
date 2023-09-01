@@ -32,11 +32,12 @@ export default function Form({
     const newTripObject = {
       tripId: uid(),
       tripName: data.name,
-      slug: slugify(data.name, { lower: true }),
+      slug: uid(),
       tripDestination: data.destination,
       tripUser: participants,
       tripStart: data.startdate,
       tripEnd: data.enddate,
+      tripTodos: [],
     };
     /* check if the end date is before the start date, and if the start date is in the past. both are not valid inputs */
     let isValid = true;
