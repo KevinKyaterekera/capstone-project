@@ -13,6 +13,7 @@ export default function CategoryPage({
   todos,
   addTodo,
   setValue,
+  deleteTodo,
 }) {
   const router = useRouter();
   const { tripId } = router.query;
@@ -34,6 +35,7 @@ export default function CategoryPage({
         todos={todos}
         addTodos={addTodo}
         setValue={setValue}
+        deleteTodo={deleteTodo}
       />
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>

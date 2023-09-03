@@ -6,6 +6,7 @@ export default function CreateTaskForm({
   todos,
   setValue,
   addTodo,
+  deleteTodo,
 }) {
   const router = useRouter();
   const { tripId } = router.query;
@@ -19,6 +20,7 @@ export default function CreateTaskForm({
       tripId={tripId}
       setValue={setValue}
       addTodo={addTodo}
+      deleteTodo={deleteTodo}
     />
   );
 }

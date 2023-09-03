@@ -12,6 +12,9 @@ export default function TaskForm({ tripId }) {
     const newTodo = { text: todoText, tripId };
     setTodos([...todos, newTodo]);
   };
+  const deleteTodo = (removeTodo) =>
+    setTodos(todos.filter((todo) => todo.text !== removeTodo.text));
+
   const handleSubmit = (event) => {
     event.preventDefault();
     if (value) {
@@ -19,6 +22,7 @@ export default function TaskForm({ tripId }) {
       setValue("");
     }
   };
+  console.log(todos);
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -43,7 +47,7 @@ export default function TaskForm({ tripId }) {
                 <>
                   <li key={index}>{todo.text}</li>
                   <button>edit</button>
-                  <button>delete</button>
+                  <button onClick={() => deleteTodo(todo)}>delete</button>
                 </>
               ))}
           </ul>

@@ -32,10 +32,6 @@ export default function App({ Component, pageProps }) {
     setCurrentTrips(tripsFiltered);
   }
 
-  const deleteTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
   const [value, setValue] = useState();
   const [todos, setTodos] = useLocalStorageState("todo", {
     defaultValue: [],
@@ -59,7 +55,6 @@ export default function App({ Component, pageProps }) {
         setParticipants={setParticipants}
         submitParticipant={submitParticipant}
         handleDeselect={handleDeselect}
-        deleteTodo={deleteTodo}
         todos={todos}
         setTodos={setTodos}
         value={value}
