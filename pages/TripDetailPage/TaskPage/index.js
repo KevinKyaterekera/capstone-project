@@ -53,7 +53,7 @@ export default function TaskForm({ tripId }) {
           </ul>
         </fieldset>
       </form>
-      <PrimaryLink href="/">Back to overview</PrimaryLink>
+      <PrimaryLink href={`/TripDetailPage/${tripId}`}>Back to trip</PrimaryLink>
     </>
   );
 }
