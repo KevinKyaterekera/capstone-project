@@ -9,13 +9,18 @@ export default function CategoryPage({
   currentTrips,
   handleDelete,
   handleDeselect,
+  handleEdit,
+  todos,
+  addTodo,
+  setValue,
 }) {
   const router = useRouter();
-  const { slug } = router.query;
-  const trip = currentTrips.find((trip) => slug === trip.slug);
+  const { tripId } = router.query;
+  const trip = currentTrips.find((trip) => trip.tripId === tripId);
   if (!trip) {
     return null;
   }
+
   return (
     <FlexContainer>
       <h2>Travel details</h2>
@@ -24,6 +29,11 @@ export default function CategoryPage({
         trip={trip}
         handleDelete={handleDelete}
         handleDeselect={handleDeselect}
+        handleEdit={handleEdit}
+        tripId={tripId}
+        todos={todos}
+        addTodos={addTodo}
+        setValue={setValue}
       />
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>

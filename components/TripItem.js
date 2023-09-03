@@ -2,14 +2,13 @@ import { styled } from "styled-components";
 import Link from "next/link";
 
 export default function TripItem({ currentTrips }) {
-  console.log(currentTrips);
   return (
     <ul>
       {currentTrips.map((trip) => (
         /*using dynamic routes redirect to the detail page with a user friendyl*/
         <StyledListItem key={trip.tripId}>
           {/* using map function to receive correct data from trips*/}
-          <StyledLink href={`/TripDetailPage/${trip.slug}`}>
+          <StyledLink href={`/TripDetailPage/${trip.tripId}`}>
             <ImageFitBox>
               <StyledImage
                 src="/images/london.jpg"

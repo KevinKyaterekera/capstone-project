@@ -1,7 +1,13 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 
-export default function TravelOverview({ trip, handleDelete, participants }) {
+export default function TravelOverview({
+  trip,
+  handleDelete,
+  handleEdit,
+  tripId,
+  todos,
+}) {
   /* page 2 detail view*/
   const handleOpenDialog = () => {
     deleteDialog.showModal();
@@ -26,13 +32,16 @@ export default function TravelOverview({ trip, handleDelete, participants }) {
           </FlexContainer>
           <FlexContainer>
             {/* This links to the TaskManagerPage */}
-            <PrimaryLink href="/TaskManagerPage">task counter</PrimaryLink>
+            <PrimaryLink href={`/TripDetailPage/TaskPage/${tripId}`}>
+              Du hast
+              {todos.filter((todo) => todo.tripId === tripId).length} Aufgaben
+            </PrimaryLink>
             <p>Time-period: </p>
             {trip.tripStart}
             {trip.tripEnd}
           </FlexContainer>
         </FlexArticle>
-        {/* Since using slug we need to call trip and not the id anymore */}
+        <button onClick={() => handleEdit(trip)}>edit</button>
         <StyledDeleteButton onClick={handleOpenDialog}>
           <svg
             width={20}
