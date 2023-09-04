@@ -1,6 +1,7 @@
 import useLocalStorageState from "use-local-storage-state";
 import PrimaryLink from "../../../components/PrimaryLink";
 import { useState } from "react";
+import { styled } from "styled-components";
 
 export default function TaskForm({ tripId }) {
   const [value, setValue] = useState();
@@ -28,19 +29,21 @@ export default function TaskForm({ tripId }) {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <legend>
-            Trip Task Manager - Du hast
-            {todos.filter((todo) => todo.tripId === tripId).length}
-            Aufgaben
+            Trip Task Manager - You have:
+            {todos.filter((todo) => todo.tripId === tripId).length} task left
           </legend>
           <input
             type="text"
             name="todo"
+            required
+            maxLength="20"
             placeholder="add a task.."
+            pattern="[A-Za-z0-9À-ž\s]{2,}"
             value={value}
             onChange={(event) => setValue(event.target.value)}
           ></input>
           <button type="submit">Add task</button>
-          <ul>
+          <StyledList>
             {todos
               .filter((todo) => todo.tripId === tripId)
               .map((todo, index) => (
@@ -50,10 +53,14 @@ export default function TaskForm({ tripId }) {
                   <button onClick={() => deleteTodo(todo)}>delete</button>
                 </>
               ))}
-          </ul>
+          </StyledList>
         </fieldset>
       </form>
       <PrimaryLink href={`/TripDetailPage/${tripId}`}>Back to trip</PrimaryLink>
     </>
   );
 }
+
+const StyledList = styled.ul`
+  list-style: none;
+`;

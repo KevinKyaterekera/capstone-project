@@ -33,8 +33,8 @@ export default function TravelOverview({
           <FlexContainer>
             {/* This links to the TaskManagerPage */}
             <PrimaryLink href={`/TripDetailPage/TaskPage/${tripId}`}>
-              Du hast
-              {todos.filter((todo) => todo.tripId === tripId).length} Aufgaben
+              You have:
+              {todos.filter((todo) => todo.tripId === tripId).length} task left
             </PrimaryLink>
             <p>Time-period: </p>
             {trip.tripStart}
