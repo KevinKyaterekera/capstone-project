@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 import { uid } from "uid";
-import slugify from "slugify";
 import SelectedParticipants from "./Participants";
 import { useState } from "react";
 
@@ -28,17 +27,14 @@ export default function Form({
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData);
 
-    /* create a new trip object using the form data */
     const newTripObject = {
       tripId: uid(),
       tripName: data.name,
-      slug: slugify(data.name, { lower: true }),
       tripDestination: data.destination,
       tripUser: participants,
       tripStart: data.startdate,
       tripEnd: data.enddate,
     };
-    /* check if the end date is before the start date, and if the start date is in the past. both are not valid inputs */
     let isValid = true;
     if (data.enddate < data.startdate) {
       window.alert("End date can not be before start date!");
@@ -60,83 +56,87 @@ export default function Form({
   }
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
-      <label htmlFor="name">
-        Name of your trip:
-        <StyledInput
-          id="name"
-          type="text"
-          name="name"
-          required
-          autoFocus
-          maxLength="20"
-          pattern="[A-Za-z0-9À-ž\s]{2,}"
-          placeholder="e.g. culinary trip, language study travel"
-        ></StyledInput>
-      </label>
-      <label htmlFor="name">
-        Destination:
-        <StyledInput
-          id="destination"
-          type="text"
-          name="destination"
-          required
-          maxLength="30"
-          pattern="[A-Za-z0-9À-ž\s]{2,}"
-          placeholder="e.g. Barcelona"
-        ></StyledInput>
-      </label>
-      <label htmlFor="startdate">
-        Start date:
-        <StyledInput
-          id="startdate"
-          type="date"
-          name="startdate"
-          placeholder="Choose a start date"
-          required
-        ></StyledInput>
-      </label>
-      <label htmlFor="enddate">
-        End date:
-        <StyledInput
-          id="enddate"
-          type="date"
-          name="enddate"
-          placeholder="Choose a end date"
-          required
-        ></StyledInput>
-      </label>
-      <label htmlFor="name">
-        Your budget:
-        <StyledInput
-          id="budget"
-          type="number"
-          name="budget"
-          min="0"
-          required
-          placeholder="e.g. 500,00"
-        ></StyledInput>
-      </label>
-      <label htmlFor="name">
-        Who will join you?
-        <StyledInput
-          id="user"
-          type="text"
-          name="user"
-          pattern="[A-Za-z0-9À-ž\s]{2,}"
-          placeholder="Choose a friend to travel with"
-          value={currentParticipant}
-          onChange={(event) => setCurrentParticipant(event.target.value)}
-          onKeyPress={handleKeyPress}
-        ></StyledInput>
-      </label>
-      <SelectedParticipants
-        participants={participants}
-        handleDeselect={handleDeselect}
-      />
-      <StyledButton type="submit">Create your trip</StyledButton>
-      <PrimaryLink href="/">Back to overview</PrimaryLink>
-    </StyledForm>
+    <>
+      <StyledForm onSubmit={handleSubmit}>
+        <label htmlFor="name">
+          Name of your trip:
+          <StyledInput
+            id="name"
+            type="text"
+            name="name"
+            required
+            autoFocus
+            maxLength="20"
+            pattern="[A-Za-z0-9À-ž\s]{2,}"
+            placeholder="e.g. culinary trip, language study travel"
+          ></StyledInput>
+        </label>
+        <label htmlFor="name">
+          Destination:
+          <StyledInput
+            id="destination"
+            type="text"
+            name="destination"
+            required
+            maxLength="30"
+            pattern="[A-Za-z0-9À-ž\s]{2,}"
+            placeholder="e.g. Barcelona"
+          ></StyledInput>
+        </label>
+        <label htmlFor="startdate">
+          Start date:
+          <StyledInput
+            id="startdate"
+            type="date"
+            name="startdate"
+            placeholder="Choose a start date"
+            required
+          ></StyledInput>
+        </label>
+        <label htmlFor="enddate">
+          End date:
+          <StyledInput
+            id="enddate"
+            type="date"
+            name="enddate"
+            placeholder="Choose a end date"
+            required
+          ></StyledInput>
+        </label>
+        <label htmlFor="name">
+          Your budget:
+          <StyledInput
+            id="budget"
+            type="number"
+            name="budget"
+            min="0"
+            required
+            placeholder="e.g. 500,00"
+          ></StyledInput>
+        </label>
+        <label htmlFor="name">
+          Who will join you?
+          <StyledInput
+            id="user"
+            type="text"
+            name="user"
+            pattern="[A-Za-z0-9À-ž\s]{2,}"
+            placeholder="Choose a friend to travel with"
+            value={currentParticipant}
+            onChange={(event) => setCurrentParticipant(event.target.value)}
+            onKeyPress={handleKeyPress}
+          ></StyledInput>
+        </label>
+        <SelectedParticipants
+          participants={participants}
+          handleDeselect={handleDeselect}
+        />
+
+        <StyledButton type="submit">Create your trip</StyledButton>
+
+        <PrimaryLink href="/">Back to overview</PrimaryLink>
+      </StyledForm>
+    </>
   );
 }
 

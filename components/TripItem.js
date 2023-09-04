@@ -8,7 +8,7 @@ export default function TripItem({ currentTrips }) {
         /*using dynamic routes redirect to the detail page with a user friendyl*/
         <StyledListItem key={trip.tripId}>
           {/* using map function to receive correct data from trips*/}
-          <StyledLink href={`/TripDetailPage/${trip.slug}`}>
+          <StyledLink href={`/TripDetailPage/${trip.tripId}`}>
             <ImageFitBox>
               <StyledImage
                 src="/images/london.jpg"

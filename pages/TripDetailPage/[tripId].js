@@ -4,18 +4,24 @@ import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
-/* receive and pass the handleDelete function in order to use it in the TravelOverview */
+/* router page 2 */
 export default function CategoryPage({
   currentTrips,
   handleDelete,
   handleDeselect,
+  handleEdit,
+  todos,
+  addTodo,
+  setValue,
+  deleteTodo,
 }) {
   const router = useRouter();
-  const { slug } = router.query;
-  const trip = currentTrips.find((trip) => slug === trip.slug);
+  const { tripId } = router.query;
+  const trip = currentTrips.find((trip) => trip.tripId === tripId);
   if (!trip) {
     return null;
   }
+
   return (
     <FlexContainer>
       <h2>Travel details</h2>
@@ -24,6 +30,12 @@ export default function CategoryPage({
         trip={trip}
         handleDelete={handleDelete}
         handleDeselect={handleDeselect}
+        handleEdit={handleEdit}
+        tripId={tripId}
+        todos={todos}
+        addTodos={addTodo}
+        setValue={setValue}
+        deleteTodo={deleteTodo}
       />
       <PrimaryLink href="/">Back to overview</PrimaryLink>
     </FlexContainer>

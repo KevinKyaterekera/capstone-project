@@ -1,5 +1,4 @@
 import Form from "@/components/Form";
-import PrimaryLink from "@/components/PrimaryLink";
 import { styled } from "styled-components";
 
 export default function CreateTripForm({
