@@ -49,7 +49,6 @@ export default function TaskForm({ tripId }) {
               .map((todo, index) => (
                 <>
                   <li key={index}>{todo.text}</li>
-                  <button>edit</button>
                   <button onClick={() => deleteTodo(todo)}>delete</button>
                 </>
               ))}
