@@ -9,7 +9,6 @@ export default function CategoryPage({
   currentTrips,
   handleDelete,
   handleDeselect,
-  handleEdit,
   todos,
   addTodo,
   setValue,
@@ -30,7 +29,6 @@ export default function CategoryPage({
         trip={trip}
         handleDelete={handleDelete}
         handleDeselect={handleDeselect}
-        handleEdit={handleEdit}
         tripId={tripId}
         todos={todos}
         addTodos={addTodo}

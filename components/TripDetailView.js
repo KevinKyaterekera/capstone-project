@@ -41,7 +41,6 @@ export default function TravelOverview({
             {trip.tripEnd}
           </FlexContainer>
         </FlexArticle>
-        <button onClick={() => handleEdit(trip)}>edit</button>
         <StyledDeleteButton onClick={handleOpenDialog}>
           <svg
             width={20}
