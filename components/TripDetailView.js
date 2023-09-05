@@ -1,8 +1,12 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
 
-export default function TravelOverview({ trip, handleDelete, tripId, todos }) {
-  /* page 2 detail view*/
+export default function TravelDetailView({
+  trip,
+  handleDelete,
+  tripId,
+  todos,
+}) {
   const handleOpenDialog = () => {
     deleteDialog.showModal();
   };

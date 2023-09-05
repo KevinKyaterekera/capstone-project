@@ -1,5 +1,6 @@
 import DestinationImage from "@/components/DestinationImage";
 import PrimaryLink from "@/components/PrimaryLink";
+import TravelDetailView from "@/components/TripDetailView";
 import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
@@ -25,7 +26,7 @@ export default function CategoryPage({
     <FlexContainer>
       <h2>Travel details</h2>
       <DestinationImage />
-      <TravelOverview
+      <TravelDetailView
         trip={trip}
         handleDelete={handleDelete}
         handleDeselect={handleDeselect}
