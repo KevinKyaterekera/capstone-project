@@ -12,8 +12,8 @@ export default function CreateTripForm({
   setParticipants,
 }) {
   return (
-    <FlexContainer>
-      <h2>Create your trip</h2>
+    <>
+      <StyledHeader>Create your tribe</StyledHeader>
       <Form
         currentTrips={currentTrips}
         setCurrentTrips={setCurrentTrips}
@@ -24,13 +24,11 @@ export default function CreateTripForm({
         handleDeselect={handleDeselect}
         setParticipants={setParticipants}
       />
-    </FlexContainer>
+    </>
   );
 }
-
-const FlexContainer = styled.ul`
-  gap: 1.6rem;
-  width: 100%;
+const StyledHeader = styled.h2`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;

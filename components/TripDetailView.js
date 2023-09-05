@@ -14,8 +14,13 @@ export default function TravelDetailView({
   return (
     <>
       <FlexContainer key={trip.tripId}>
+        <PrimaryLink href={`/TripDetailPage/TaskPage/${tripId}`}>
+          You have:
+          {todos.filter((todo) => todo.tripId === tripId).length} task left
+        </PrimaryLink>
         <article>
-          {trip.tripName}
+          <h2>{trip.tripName}</h2> <p>Time-period: {trip.tripStart}</p>
+          {trip.tripEnd}
           📍{trip.tripDestination}
         </article>
         <FlexArticle>
@@ -28,16 +33,6 @@ export default function TravelDetailView({
               </g>
             </svg>
             {trip.tripUser && trip.tripUser.join(", ")}
-          </FlexContainer>
-          <FlexContainer>
-            {/* This links to the TaskManagerPage */}
-            <PrimaryLink href={`/TripDetailPage/TaskPage/${tripId}`}>
-              You have:
-              {todos.filter((todo) => todo.tripId === tripId).length} task left
-            </PrimaryLink>
-            <p>Time-period: </p>
-            {trip.tripStart}
-            {trip.tripEnd}
           </FlexContainer>
         </FlexArticle>
         <StyledDeleteButton onClick={handleOpenDialog}>

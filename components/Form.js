@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import PrimaryLink from "./PrimaryLink";
+import BackLink from "./PrimaryLink";
 import { uid } from "uid";
 import SelectedParticipants from "./Participants";
 import { useState } from "react";
@@ -12,7 +12,6 @@ export default function Form({
   handleDeselect,
 }) {
   const [currentParticipant, setCurrentParticipant] = useState("");
-  /* preventing the defaul behavior of the enter key */
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -56,7 +55,8 @@ export default function Form({
   }
 
   return (
-    <>
+    <StyledDiv>
+      <StyledBackLink href="/">🔙</StyledBackLink>
       <StyledForm onSubmit={handleSubmit}>
         <label htmlFor="name">
           Name of your trip:
@@ -121,7 +121,7 @@ export default function Form({
             type="text"
             name="user"
             pattern="[A-Za-z0-9À-ž\s]{2,}"
-            placeholder="Choose a friend to travel with"
+            placeholder="👥 Choose a friend to travel with"
             value={currentParticipant}
             onChange={(event) => setCurrentParticipant(event.target.value)}
             onKeyPress={handleKeyPress}
@@ -131,39 +131,73 @@ export default function Form({
           participants={participants}
           handleDeselect={handleDeselect}
         />
-
         <StyledButton type="submit">Create your trip</StyledButton>
-
-        <PrimaryLink href="/">Back to overview</PrimaryLink>
       </StyledForm>
-    </>
+    </StyledDiv>
   );
 }
 
-const StyledForm = styled.form`
-  gap: 1.5rem;
-  width: 100%;
+const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
   margin-bottom: 1.5;
+  color: #747688;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 23px;
 `;
 
 const StyledInput = styled.input`
-  width: 90%;
-  border: 1px solid black;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  width: 317px;
+  height: 56px;
+  display: flex;
+  border-radius: 12px;
+  border: 1px solid #c2bdbd;
+  background: #fff;
+  &::placeholder {
+    color: #747688;
+    font-size: 14px;
+    line-height: 23px;
+    opacity: 40%;
+  }
 `;
 
 const StyledButton = styled.button`
-  width: 90%;
-  border: 1px solid black;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background-color: #4fabf7;
+  color: #eee;
+  font-size: 18px;
+  color: white;
+  width: 246px;
+  height: 52px;
+  cursor: pointer;
+  border-radius: 15px;
+  border-style: none;
+  text-decoration: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &:hover {
+    background-color: #096fc3;
+  }
 `;
 
-const StyledList = styled.ul`
+const StyledBackLink = styled(BackLink)`
   display: flex;
-  gap: 1rem;
-  list-style: none;
+  align-items: self-start;
+  background-color: #4fabf7;
+  width: 50px;
+  background-color: transparent;
+  box-shadow: none;
+  &:hover {
+    background-color: red;
+  }
 `;

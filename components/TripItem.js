@@ -3,11 +3,9 @@ import Link from "next/link";
 
 export default function TripItem({ currentTrips }) {
   return (
-    <ul>
+    <StyledFrame>
       {currentTrips.map((trip) => (
-        /*using dynamic routes redirect to the detail page with a user friendyl*/
         <StyledListItem key={trip.tripId}>
-          {/* using map function to receive correct data from trips*/}
           <StyledLink href={`/TripDetailPage/${trip.tripId}`}>
             <ImageFitBox>
               <StyledImage
@@ -18,38 +16,57 @@ export default function TripItem({ currentTrips }) {
             <span />
             <article>
               <h4>{trip.tripName}</h4>
-              <p>📍{trip.tripDestination}</p>
+              <StyledCityName>📍{trip.tripDestination}</StyledCityName>
             </article>
           </StyledLink>
         </StyledListItem>
       ))}
-    </ul>
+    </StyledFrame>
   );
 }
 
+const StyledFrame = styled.ul`
+  margin: 50px 20px;
+  width: 300px;
+  gap: 2rem;
+`;
+
 const StyledListItem = styled.li`
-  width: 75%;
   list-style: none;
+  height: 104px;
+  margin-left: -50px;
 `;
 
 const StyledLink = styled(Link)`
-  gap: 1rem;
   color: black;
-  border: 0.5px solid black;
-  padding: 0.4rem;
   display: flex;
   align-items: center;
-  border-radius: 0.5rem;
   text-decoration: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &:hover {
+    background-color: #ece9ef;
+    transform: translateY(-10px);
+    transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+  }
 `;
 
 const ImageFitBox = styled.div`
-  width: 65%;
-  height: 15%;
+  margin: 5px 2px;
 `;
 
 const StyledImage = styled.img`
-  width: 50%;
-  height: 50%;
-  border-radius: 0.6rem;
+  width: 91px;
+  height: 84px;
+  border-radius: 10px;
+  align-self: stretch;
+`;
+
+const StyledCityName = styled.p`
+  color: #8b8688;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;

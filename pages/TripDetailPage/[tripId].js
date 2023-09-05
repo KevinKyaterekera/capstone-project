@@ -1,7 +1,6 @@
 import DestinationImage from "@/components/DestinationImage";
 import PrimaryLink from "@/components/PrimaryLink";
 import TravelDetailView from "@/components/TripDetailView";
-import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
@@ -41,9 +40,6 @@ export default function CategoryPage({
   );
 }
 const FlexContainer = styled.div`
-  gap: 1.3rem;
-  width: 75%;
-  margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
