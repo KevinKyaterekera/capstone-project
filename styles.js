@@ -8,6 +8,5 @@ export default createGlobalStyle`
   }body {
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
- 
   }
 `;

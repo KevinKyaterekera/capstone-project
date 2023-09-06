@@ -5,8 +5,8 @@ export default function DestinationImage() {
   return (
     <StyledImage
       src="/images/london.jpg"
-      width={300}
-      height={250}
+      width={380}
+      height={350}
       alt="This is a picture of the destinated city"
     />
   );

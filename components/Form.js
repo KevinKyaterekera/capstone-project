@@ -12,6 +12,7 @@ export default function Form({
   handleDeselect,
 }) {
   const [currentParticipant, setCurrentParticipant] = useState("");
+  const [tripDescription, setTripDescription] = useState("");
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
@@ -30,6 +31,7 @@ export default function Form({
       tripId: uid(),
       tripName: data.name,
       tripDestination: data.destination,
+      tripDescription: tripDescription,
       tripUser: participants,
       tripStart: data.startdate,
       tripEnd: data.enddate,
@@ -131,6 +133,17 @@ export default function Form({
           participants={participants}
           handleDeselect={handleDeselect}
         />
+        <label htmlFor="description">
+          Trip Description (max 300 characters):
+          <StyledTextarea
+            id="description"
+            name="description"
+            rows="5"
+            maxLength="300"
+            value={tripDescription}
+            onChange={(event) => setTripDescription(event.target.value)}
+          ></StyledTextarea>
+        </label>
         <StyledButton type="submit">Create your trip</StyledButton>
       </StyledForm>
     </StyledDiv>
@@ -199,5 +212,20 @@ const StyledBackLink = styled(BackLink)`
   box-shadow: none;
   &:hover {
     background-color: red;
+  }
+`;
+
+const StyledTextarea = styled.textarea`
+  width: 317px;
+  height: 90px;
+  display: flex;
+  border-radius: 12px;
+  border: 1px solid #c2bdbd;
+  background: #fff;
+  &::placeholder {
+    color: #747688;
+    font-size: 14px;
+    line-height: 23px;
+    opacity: 40%;
   }
 `;
