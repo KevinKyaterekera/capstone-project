@@ -219,6 +219,7 @@ const StyledTextarea = styled.textarea`
   width: 317px;
   height: 90px;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 12px;
   border: 1px solid #c2bdbd;
   background: #fff;
