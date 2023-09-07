@@ -8,8 +8,9 @@ export default function ListOverview({ currentTrips }) {
   if (noTripsPlanned) {
     return (
       <FlexContainer>
-        <h2>TravelTribe</h2>
-        <Searchbar currentTrips={currentTrips} />
+        <HeaderContainer>
+          <StyledLogo src="/images/logo.png" alt="Logo" />
+        </HeaderContainer>
         <CalenderSvg />
         <h2>No upcoming trips</h2>
         <PrimaryLink href="/FormPage">Add new trip</PrimaryLink>
@@ -29,4 +30,16 @@ const FlexContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 15px 20px;
+  margin-bottom: 85px;
+`;
+const StyledLogo = styled.img`
+  height: 140px;
+  width: 150px;
+  border-radius: 30%;
 `;

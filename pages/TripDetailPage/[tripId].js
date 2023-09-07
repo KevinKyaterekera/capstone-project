@@ -34,7 +34,7 @@ export default function CategoryPage({
         setValue={setValue}
         deleteTodo={deleteTodo}
       />
-      <PrimaryLink href="/">Back to overview</PrimaryLink>
+      <BackLink href="/">Back to overview</BackLink>
     </FlexContainer>
   );
 }
@@ -45,8 +45,11 @@ const FlexContainer = styled.div`
   @media screen and (min-width: 415px) {
   }
 `;
-
 const StyledHeader = styled.h2`
   color: white;
   z-index: 1;
+`;
+
+const BackLink = styled(PrimaryLink)`
+  margin: 40px 15px;
 `;

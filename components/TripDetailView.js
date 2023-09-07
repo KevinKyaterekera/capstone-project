@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import PrimaryLink from "./PrimaryLink";
+import moment from "moment";
 
 export default function TravelDetailView({
   trip,
@@ -50,8 +51,8 @@ export default function TravelDetailView({
               />
             </StyledSvg>
           </StyledSvgContainer>
-          {trip.tripStart}
-          {trip.tripEnd}
+          {moment(trip.tripStart).format("LL")} <br />
+          {moment(trip.tripEnd).format("LL")}
         </DetailWrapper>
         <DetailWrapper>
           <StyledSvgContainer>
@@ -131,12 +132,10 @@ export default function TravelDetailView({
         <p>You are about to delete this trip. Are you sure?</p>
         <form method="dialog">
           <ButtonContainer>
-            <CancelButton>Cancel</CancelButton>
-            <PrimaryLink href="/">
-              <DeleteButton onClick={() => handleDelete(trip)}>
-                Yes!
-              </DeleteButton>
-            </PrimaryLink>
+            <CancelButton>No!</CancelButton>
+            <BackLinkDelete onClick={() => handleDelete(trip)} href="/">
+              Yes!
+            </BackLinkDelete>
           </ButtonContainer>
         </form>
       </DeleteDialog>
@@ -156,20 +155,57 @@ const FlexContainer = styled.div`
   display: flex;
   border-radius: 0.5rem;
   flex-direction: column;
+  max-width: 400px;
 `;
 
 const StyledDeleteButton = styled.button`
+  align-self: center;
+  cursor: pointer;
+  border-radius: 15px;
+  padding: 15px;
+  background-color: #eef0ff;
+  color: red;
+  width: 50px;
+  height: 50px;
   &:hover {
     background-color: red;
+    color: white;
   }
 `;
-const CancelButton = styled.button``;
-const DeleteButton = styled.button``;
+const CancelButton = styled.button`
+  align-self: center;
+  font-size: small;
+  padding: 15px;
+  border-style: none;
+  background-color: transparent;
+  color: green;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 15px;
+  text-decoration: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &:hover {
+    background-color: #29d697;
+    color: white;
+  }
+`;
+const BackLinkDelete = styled(PrimaryLink)`
+  align-self: center;
+  font-size: small;
+  background-color: transparent;
+  color: red;
+  width: 50px;
+  &:hover {
+    background-color: red;
+    color: white;
+  }
+`;
 
 const DeleteDialog = styled.dialog`
   background-color: white;
   border-radius: 15px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  border-style: none;
 `;
 
 const ButtonContainer = styled.div`
