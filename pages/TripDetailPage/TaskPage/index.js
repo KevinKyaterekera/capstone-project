@@ -23,7 +23,9 @@ export default function TaskForm({ tripId }) {
   };
 
   const addTodo = (todoText) => {
-    const isDuplicate = todos.some((todo) => todo.text === todoText);
+    const isDuplicate = todos.some(
+      (todo) => todo.text === todoText && todo.tripId === tripId
+    );
     if (!isDuplicate) {
       const newTodoId = uid();
       const newTodo = { text: todoText, tripId, todoId: newTodoId };
