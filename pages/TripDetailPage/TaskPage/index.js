@@ -13,6 +13,7 @@ export default function TaskForm({ tripId }) {
   const [editedText, setEditedText] = useState("");
   const [editTodoId, setEditTodoId] = useState("");
   const [buttonClicked, setButtonClicked] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const editTodo = (todoId) => {
     setEditing(true);
@@ -22,9 +23,17 @@ export default function TaskForm({ tripId }) {
   };
 
   const addTodo = (todoText) => {
-    const newTodo = { text: todoText, tripId, todoId: uid() };
-    setTodos([...todos, newTodo]);
+    const isDuplicate = todos.some((todo) => todo.text === todoText);
+    if (!isDuplicate) {
+      const newTodoId = uid();
+      const newTodo = { text: todoText, tripId, todoId: newTodoId };
+      setTodos([...todos, newTodo]);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Task with the same text already exists");
+    }
   };
+
   const deleteTodo = (removeTodo) =>
     setTodos(todos.filter((todo) => todo.text !== removeTodo.text));
 
@@ -52,6 +61,7 @@ export default function TaskForm({ tripId }) {
 
   return (
     <>
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <StyledForm onSubmit={handleSubmit}>
         <StyledFieldset>
           <StyledLegend>
@@ -243,4 +253,17 @@ const StyledAddButton = styled.button`
 
 const TextAlign = styled.div`
   margin-left: 10px;
+`;
+
+const ErrorMessage = styled.div`
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border: 1px solid red;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  font-weight: 600;
+  background-color: red;
 `;
