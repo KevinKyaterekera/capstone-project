@@ -1,11 +1,9 @@
 import DestinationImage from "@/components/DestinationImage";
 import PrimaryLink from "@/components/PrimaryLink";
 import TravelDetailView from "@/components/TripDetailView";
-import TravelOverview from "@/components/TripDetailView";
 import { useRouter } from "next/router";
 import { styled } from "styled-components";
 
-/* router page 2 */
 export default function CategoryPage({
   currentTrips,
   handleDelete,
@@ -24,8 +22,8 @@ export default function CategoryPage({
 
   return (
     <FlexContainer>
-      <h2>Travel details</h2>
       <DestinationImage />
+      {<StyledHeader>Travel details</StyledHeader>}
       <TravelDetailView
         trip={trip}
         handleDelete={handleDelete}
@@ -36,15 +34,22 @@ export default function CategoryPage({
         setValue={setValue}
         deleteTodo={deleteTodo}
       />
-      <PrimaryLink href="/">Back to overview</PrimaryLink>
+      <BackLink href="/">Back to overview</BackLink>
     </FlexContainer>
   );
 }
 const FlexContainer = styled.div`
-  gap: 1.3rem;
-  width: 75%;
-  margin: auto;
   display: flex;
   align-items: center;
   flex-direction: column;
+  @media screen and (min-width: 415px) {
+  }
+`;
+const StyledHeader = styled.h2`
+  color: white;
+  z-index: 1;
+`;
+
+const BackLink = styled(PrimaryLink)`
+  margin: 40px 15px;
 `;

@@ -14,13 +14,7 @@ export default function SelectedParticipants({ participants, handleDeselect }) {
   );
 }
 
-const FlexContainer = styled.div`
-  gap: 1.6rem;
-  display: flex;
-`;
-
 const StyledListItem = styled.li`
   list-style: none;
   gap: 1.6rem;
-  display: flex;
 `;
