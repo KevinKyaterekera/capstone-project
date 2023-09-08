@@ -16,8 +16,10 @@ export default function Form({
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      submitParticipant(currentParticipant);
-      setCurrentParticipant("");
+      if (currentParticipant.trim() !== "") {
+        submitParticipant(currentParticipant);
+        setCurrentParticipant("");
+      }
     }
   };
 
