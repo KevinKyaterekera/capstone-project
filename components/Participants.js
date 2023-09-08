@@ -7,7 +7,9 @@ export default function SelectedParticipants({ participants, handleDeselect }) {
         <>
           <StyledListItem key={participant}>{participant}</StyledListItem>
           {/* this button will remove the participant selection*/}
-          <button onClick={() => handleDeselect(participant)}>X</button>
+          <button type="button" onClick={() => handleDeselect(participant)}>
+            X
+          </button>
         </>
       ))}
     </ul>
