@@ -264,6 +264,7 @@ const StyledDesription = styled.p`
   font-weight: 300;
   line-height: 28px;
   margin-top: auto;
+  word-break: break-all;
 `;
 
 const StyledSvg = styled.svg`

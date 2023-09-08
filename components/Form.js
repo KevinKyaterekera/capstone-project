@@ -16,8 +16,10 @@ export default function Form({
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      submitParticipant(currentParticipant);
-      setCurrentParticipant("");
+      if (currentParticipant.trim() !== "") {
+        submitParticipant(currentParticipant);
+        setCurrentParticipant("");
+      }
     }
   };
 
@@ -159,9 +161,10 @@ const StyledDiv = styled.div`
 const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 1.5;
+  margin-bottom: 1.5rem;
   color: #747688;
   font-size: 14px;
   font-style: normal;
@@ -219,8 +222,10 @@ const StyledTextarea = styled.textarea`
   width: 317px;
   height: 90px;
   display: flex;
+  flex-wrap: wrap;
   border-radius: 12px;
   border: 1px solid #c2bdbd;
+  word-break: break-all;
   background: #fff;
   &::placeholder {
     color: #747688;
