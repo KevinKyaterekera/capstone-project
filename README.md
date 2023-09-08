@@ -13,12 +13,12 @@ Important the project is optimized for mobile screen.
 
 ## Included Tech Stack
 
-React ( Hooks, Router )
-Next.js ( Dynamic Routing )
-Node.js
-JavaScript
-Styled Components
-LocalStorage
+- React ( Hooks, Router )
+- Next.js ( Dynamic Routing )
+- Node.js
+- JavaScript
+- Styled Components
+- LocalStorage
 
 ## How to setup?
 
