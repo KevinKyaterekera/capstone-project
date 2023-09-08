@@ -3,6 +3,7 @@
 TravelTribe is an all-in-one travel application that allows you to create trips and invite friends. Use a integrated to-do manager to keep track of tasks and delegate them to your tribe members.
 
 [traveltrbe mobile version](/public/images/mobileview.png)
+![mobileview](https://github.com/KevinKyaterekera/capstone-project/assets/125157606/cf987923-fc29-4b89-9278-97c45de3493e)
 
 ## Demo:
 
